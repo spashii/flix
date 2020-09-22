@@ -6,6 +6,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     position: 'relative',
     height: '400px',
+    [theme.breakpoints.down('sm')]: {
+      maxWidth: '70vw',
+    },
     overflow: 'hidden',
     cursor: 'pointer',
   },
@@ -17,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
   image: {
     borderRadius: '4px',
     objectFit: 'cover',
+    objectPosition: '50% 50%',
     transition: 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
     '&:hover': {
       transform: 'scale(1.05)',

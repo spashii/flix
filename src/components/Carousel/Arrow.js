@@ -8,12 +8,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     margin: theme.spacing(2),
   },
-  button: {
-    transition: 'transform 0.5s ease-out',
-    '&:hover': {
-      transform: 'scale(1.2)',
-    },
-  },
+  button: {},
 }));
 
 const Arrow = ({ direction, onClick }) => {
