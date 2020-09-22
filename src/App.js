@@ -1,7 +1,17 @@
 import React from 'react';
+import { Router } from '@reach/router';
+
+import { Layout, Home, Movie } from './pages';
 
 function App() {
-  return <div>hello</div>;
+  return (
+    <Router>
+      <Layout path='/'>
+        <Home path='/' />
+        <Movie path='/movie/:movieId' />
+      </Layout>
+    </Router>
+  );
 }
 
 export default App;
