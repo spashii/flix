@@ -53,7 +53,7 @@ const MovieGrid = () => {
 
   return (
     <div className={classes.root}>
-      <Grid container spacing={2} justify='center'>
+      <Grid container spacing={2}>
         {!isLoading &&
           movies.map((content) => (
             <Grid key={content.id} item xs={6} sm={4} md={3} lg={2}>

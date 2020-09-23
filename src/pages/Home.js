@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
       textAlign: 'center',
       marginLeft: 0,
     },
+    fontWeight: 'bold',
   },
 }));
 

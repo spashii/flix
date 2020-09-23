@@ -14,9 +14,9 @@ import { grey } from '@material-ui/core/colors';
 const useStyles = makeStyles((theme) => ({
   root: {
     position: 'relative',
-    height: '75vh',
+    height: '60vh',
     [theme.breakpoints.down('sm')]: {
-      height: '60vh',
+      height: '50vh',
     },
     [theme.breakpoints.down('xs')]: {
       height: '40vh',
@@ -32,10 +32,10 @@ const useStyles = makeStyles((theme) => ({
     '&:hover': {
       transform: 'scale(1.05)',
     },
-    width: '100%',
-    height: '75vh',
+    width: '75vw',
+    height: '60vh',
     [theme.breakpoints.down('sm')]: {
-      height: '60vh',
+      height: '50vh',
     },
     [theme.breakpoints.down('xs')]: {
       height: '40vh',
@@ -75,17 +75,17 @@ const CarouselSlide = ({ content }) => {
         style={{ padding: 0 }}
       >
         <Box className={classes.titleWrapper}>
-          <Typography variant='h5' className={classes.title}>
+          <Typography variant='h4' className={classes.title}>
             {content.title}
           </Typography>
           <Hidden smDown>
-            <Typography variant='body2' className={classes.overview}>
+            <Typography variant='subtitle1' className={classes.overview}>
               {content.overview}
             </Typography>
           </Hidden>
         </Box>
         <img
-          src={`https://image.tmdb.org/t/p/original${content.backdrop_path}`}
+          src={`https://image.tmdb.org/t/p/w780${content.backdrop_path}`}
           alt={content.title + ' backdrop image'}
           className={classes.image}
         />

@@ -1,6 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Box, Card, Container, makeStyles, Paper } from '@material-ui/core';
+import {
+  Box,
+  Container,
+  Divider,
+  Grid,
+  List,
+  ListItem,
+  ListItemText,
+  makeStyles,
+  Paper,
+  Typography,
+} from '@material-ui/core';
+import { grey } from '@material-ui/core/colors';
+import { Rating } from '@material-ui/lab';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -11,11 +24,27 @@ const useStyles = makeStyles((theme) => ({
     top: '50%',
     right: '50%',
   },
-  mainContainer: {},
+  mainContainer: {
+    backgroundColor: grey[200],
+  },
   backdrop: {},
   card: {
     marginTop: theme.spacing(4),
   },
+  title: {
+    fontWeight: 'bold',
+  },
+  tagline: {},
+  mediaWrapper: {
+    overflow: 'hidden',
+  },
+  media: {
+    borderRadius: '4px',
+    objectFit: 'cover',
+    width: '100%',
+    height: '100%',
+  },
+  gridItem: {},
 }));
 
 const MovieBig = ({ movieId }) => {
@@ -58,127 +87,183 @@ const MovieBig = ({ movieId }) => {
               zIndex: -1,
             }}
           />
-          <Container maxWidth='lg'>
-            <Box component={Paper} className={classes.card}>
-              helloOfficia occaecat irure aute dolor esse veniam culpa dolor
-              elit irure excepteur dolor minim anim. Commodo proident cupidatat
-              cillum incididunt. Est sint ullamco ut sit ullamco. Et cupidatat
-              pariatur minim mollit magna exercitation aliqua veniam ut. Minim
-              aute consectetur tempor do aliqua pariatur elit culpa. Tempor
-              aliquip ullamco laboris anim ut et sint do elit pariatur nisi eu
-              commodo. Cupidatat aliquip ipsum cupidatat do dolor cillum esse
-              sunt non dolore eu. Duis eiusmod est elit tempor dolore sint.
-              Magna ea reprehenderit fugiat esse in irure sint cupidatat tempor.
-              Culpa deserunt adipisicing amet sunt tempor voluptate. Et sint
-              magna eiusmod eu proident. Nisi nulla ea duis ipsum elit laboris
-              consectetur elit eiusmod amet ullamco deserunt ea mollit. Proident
-              ad non sunt qui ex sint sit ullamco. Non ut incididunt duis
-              deserunt laborum tempor non exercitation duis non nisi. Veniam
-              incididunt mollit mollit irure laboris Lorem. Id ea nulla sit sint
-              ullamco ullamco esse nostrud sunt amet commodo labore aliqua sit.
-              Mollit ut laborum sint in nostrud. Ea excepteur culpa excepteur
-              est proident irure commodo in ea enim et ea esse laboris.
-            </Box>
-            <Box component={Paper} className={classes.card}>
-              helloOfficia occaecat irure aute dolor esse veniam culpa dolor
-              elit irure excepteur dolor minim anim. Commodo proident cupidatat
-              cillum incididunt. Est sint ullamco ut sit ullamco. Et cupidatat
-              pariatur minim mollit magna exercitation aliqua veniam ut. Minim
-              aute consectetur tempor do aliqua pariatur elit culpa. Tempor
-              aliquip ullamco laboris anim ut et sint do elit pariatur nisi eu
-              commodo. Cupidatat aliquip ipsum cupidatat do dolor cillum esse
-              sunt non dolore eu. Duis eiusmod est elit tempor dolore sint.
-              Magna ea reprehenderit fugiat esse in irure sint cupidatat tempor.
-              Culpa deserunt adipisicing amet sunt tempor voluptate. Et sint
-              magna eiusmod eu proident. Nisi nulla ea duis ipsum elit laboris
-              consectetur elit eiusmod amet ullamco deserunt ea mollit. Proident
-              ad non sunt qui ex sint sit ullamco. Non ut incididunt duis
-              deserunt laborum tempor non exercitation duis non nisi. Veniam
-              incididunt mollit mollit irure laboris Lorem. Id ea nulla sit sint
-              ullamco ullamco esse nostrud sunt amet commodo labore aliqua sit.
-              Mollit ut laborum sint in nostrud. Ea excepteur culpa excepteur
-              est proident irure commodo in ea enim et ea esse laboris.
-            </Box>
-            <Box component={Paper} className={classes.card}>
-              helloOfficia occaecat irure aute dolor esse veniam culpa dolor
-              elit irure excepteur dolor minim anim. Commodo proident cupidatat
-              cillum incididunt. Est sint ullamco ut sit ullamco. Et cupidatat
-              pariatur minim mollit magna exercitation aliqua veniam ut. Minim
-              aute consectetur tempor do aliqua pariatur elit culpa. Tempor
-              aliquip ullamco laboris anim ut et sint do elit pariatur nisi eu
-              commodo. Cupidatat aliquip ipsum cupidatat do dolor cillum esse
-              sunt non dolore eu. Duis eiusmod est elit tempor dolore sint.
-              Magna ea reprehenderit fugiat esse in irure sint cupidatat tempor.
-              Culpa deserunt adipisicing amet sunt tempor voluptate. Et sint
-              magna eiusmod eu proident. Nisi nulla ea duis ipsum elit laboris
-              consectetur elit eiusmod amet ullamco deserunt ea mollit. Proident
-              ad non sunt qui ex sint sit ullamco. Non ut incididunt duis
-              deserunt laborum tempor non exercitation duis non nisi. Veniam
-              incididunt mollit mollit irure laboris Lorem. Id ea nulla sit sint
-              ullamco ullamco esse nostrud sunt amet commodo labore aliqua sit.
-              Mollit ut laborum sint in nostrud. Ea excepteur culpa excepteur
-              est proident irure commodo in ea enim et ea esse laboris.
-            </Box>
-            <Box component={Paper} className={classes.card}>
-              helloOfficia occaecat irure aute dolor esse veniam culpa dolor
-              elit irure excepteur dolor minim anim. Commodo proident cupidatat
-              cillum incididunt. Est sint ullamco ut sit ullamco. Et cupidatat
-              pariatur minim mollit magna exercitation aliqua veniam ut. Minim
-              aute consectetur tempor do aliqua pariatur elit culpa. Tempor
-              aliquip ullamco laboris anim ut et sint do elit pariatur nisi eu
-              commodo. Cupidatat aliquip ipsum cupidatat do dolor cillum esse
-              sunt non dolore eu. Duis eiusmod est elit tempor dolore sint.
-              Magna ea reprehenderit fugiat esse in irure sint cupidatat tempor.
-              Culpa deserunt adipisicing amet sunt tempor voluptate. Et sint
-              magna eiusmod eu proident. Nisi nulla ea duis ipsum elit laboris
-              consectetur elit eiusmod amet ullamco deserunt ea mollit. Proident
-              ad non sunt qui ex sint sit ullamco. Non ut incididunt duis
-              deserunt laborum tempor non exercitation duis non nisi. Veniam
-              incididunt mollit mollit irure laboris Lorem. Id ea nulla sit sint
-              ullamco ullamco esse nostrud sunt amet commodo labore aliqua sit.
-              Mollit ut laborum sint in nostrud. Ea excepteur culpa excepteur
-              est proident irure commodo in ea enim et ea esse laboris.
-            </Box>
-            <Box component={Paper} className={classes.card}>
-              helloOfficia occaecat irure aute dolor esse veniam culpa dolor
-              elit irure excepteur dolor minim anim. Commodo proident cupidatat
-              cillum incididunt. Est sint ullamco ut sit ullamco. Et cupidatat
-              pariatur minim mollit magna exercitation aliqua veniam ut. Minim
-              aute consectetur tempor do aliqua pariatur elit culpa. Tempor
-              aliquip ullamco laboris anim ut et sint do elit pariatur nisi eu
-              commodo. Cupidatat aliquip ipsum cupidatat do dolor cillum esse
-              sunt non dolore eu. Duis eiusmod est elit tempor dolore sint.
-              Magna ea reprehenderit fugiat esse in irure sint cupidatat tempor.
-              Culpa deserunt adipisicing amet sunt tempor voluptate. Et sint
-              magna eiusmod eu proident. Nisi nulla ea duis ipsum elit laboris
-              consectetur elit eiusmod amet ullamco deserunt ea mollit. Proident
-              ad non sunt qui ex sint sit ullamco. Non ut incididunt duis
-              deserunt laborum tempor non exercitation duis non nisi. Veniam
-              incididunt mollit mollit irure laboris Lorem. Id ea nulla sit sint
-              ullamco ullamco esse nostrud sunt amet commodo labore aliqua sit.
-              Mollit ut laborum sint in nostrud. Ea excepteur culpa excepteur
-              est proident irure commodo in ea enim et ea esse laboris.
-            </Box>
-            <Box component={Paper} className={classes.card}>
-              helloOfficia occaecat irure aute dolor esse veniam culpa dolor
-              elit irure excepteur dolor minim anim. Commodo proident cupidatat
-              cillum incididunt. Est sint ullamco ut sit ullamco. Et cupidatat
-              pariatur minim mollit magna exercitation aliqua veniam ut. Minim
-              aute consectetur tempor do aliqua pariatur elit culpa. Tempor
-              aliquip ullamco laboris anim ut et sint do elit pariatur nisi eu
-              commodo. Cupidatat aliquip ipsum cupidatat do dolor cillum esse
-              sunt non dolore eu. Duis eiusmod est elit tempor dolore sint.
-              Magna ea reprehenderit fugiat esse in irure sint cupidatat tempor.
-              Culpa deserunt adipisicing amet sunt tempor voluptate. Et sint
-              magna eiusmod eu proident. Nisi nulla ea duis ipsum elit laboris
-              consectetur elit eiusmod amet ullamco deserunt ea mollit. Proident
-              ad non sunt qui ex sint sit ullamco. Non ut incididunt duis
-              deserunt laborum tempor non exercitation duis non nisi. Veniam
-              incididunt mollit mollit irure laboris Lorem. Id ea nulla sit sint
-              ullamco ullamco esse nostrud sunt amet commodo labore aliqua sit.
-              Mollit ut laborum sint in nostrud. Ea excepteur culpa excepteur
-              est proident irure commodo in ea enim et ea esse laboris.
-            </Box>
+          <Container component={Box} mt={4} maxWidth='lg'>
+            <Grid
+              container
+              spacing={4}
+              justify='flex-start'
+              alignItems='stretch'
+            >
+              <Grid item xs={12}>
+                <Paper
+                  component={Box}
+                  p={2}
+                  display='flex'
+                  flexDirecton={{ sm: 'column', md: 'row' }}
+                  alignItems='center'
+                  className={classes.gridItem}
+                >
+                  <Box mr={'auto'}>
+                    <Typography
+                      color='primary'
+                      variant='h4'
+                      className={classes.title}
+                    >
+                      {data.title}
+                    </Typography>
+                    <Typography variant='subtitle1' className={classes.tagline}>
+                      {data.tagline}
+                    </Typography>
+                  </Box>
+                  <Box>
+                    <Rating
+                      name='movie-rating'
+                      readOnly
+                      defaultValue={data.vote_average}
+                      max={10}
+                      precision={0.5}
+                    />
+                    <Typography variant='subtitle1'>
+                      ({data.vote_count} votes)
+                    </Typography>
+                  </Box>
+                </Paper>
+              </Grid>
+              {/* <Grid item xs={12} md={5}>
+                <Paper
+                  style={{
+                    height: '100%',
+                  }}
+                  component={Box}
+                  display='flex'
+                  alignItems='center'
+                  justifyContent='space-evenly'
+                  p={2}
+                  className={classes.gridItem}
+                >
+                  <Rating
+                    name='movie-rating'
+                    readOnly
+                    defaultValue={data.vote_average}
+                    max={10}
+                    precision={0.5}
+                  />
+                  <Typography variant='subtitle1'>
+                    ({data.vote_count} votes)
+                  </Typography>
+                </Paper>
+              </Grid> */}
+              <Grid item xs={12} md={4}>
+                <div className={classes.mediaWrapper}>
+                  <img
+                    alt={data.title + ' cover'}
+                    className={classes.media}
+                    src={`https://image.tmdb.org/t/p/w342${data.poster_path}`}
+                  />
+                </div>
+              </Grid>
+              <Grid item xs={12} md={8}>
+                <Paper component={Box} p={2} className={classes.gridItem}>
+                  <List className={classes.root}>
+                    {data.original_title && (
+                      <>
+                        <ListItem alignItems='flex-start'>
+                          <ListItemText
+                            primary={
+                              <>
+                                <Typography
+                                  component='span'
+                                  variant='h6'
+                                  color='primary'
+                                >
+                                  Original Title
+                                </Typography>
+                              </>
+                            }
+                            secondary={
+                              <>
+                                <Typography component='span' variant='body1'>
+                                  {data.original_title}
+                                </Typography>
+                              </>
+                            }
+                          />
+                        </ListItem>
+                        <Divider variant='middle' component='li' />
+                      </>
+                    )}
+                    <ListItem alignItems='flex-start'>
+                      <ListItemText
+                        primary={
+                          <>
+                            <Typography
+                              component='span'
+                              variant='h6'
+                              color='primary'
+                            >
+                              Release Date
+                            </Typography>
+                          </>
+                        }
+                        secondary={
+                          <>
+                            <Typography component='span' variant='body1'>
+                              {data.release_date}
+                            </Typography>
+                          </>
+                        }
+                      />
+                    </ListItem>
+                    <Divider variant='middle' component='li' />
+                    <ListItem alignItems='flex-start'>
+                      <ListItemText
+                        primary={
+                          <>
+                            <Typography
+                              component='span'
+                              variant='h6'
+                              color='primary'
+                            >
+                              Genres
+                            </Typography>
+                          </>
+                        }
+                        secondary={
+                          <>
+                            <Typography component='span' variant='body1'>
+                              {data.genres.map(({ name }) => `${name}  `)}
+                            </Typography>
+                          </>
+                        }
+                      />
+                    </ListItem>
+                    <Divider variant='middle' component='li' />
+                    <ListItem alignItems='flex-start'>
+                      <ListItemText
+                        primary={
+                          <>
+                            <Typography
+                              component='span'
+                              variant='h6'
+                              color='primary'
+                            >
+                              Overview
+                            </Typography>
+                          </>
+                        }
+                        secondary={
+                          <>
+                            <Typography component='span' variant='body1'>
+                              {data.overview}
+                            </Typography>
+                          </>
+                        }
+                      />
+                    </ListItem>
+                  </List>
+                </Paper>
+              </Grid>
+            </Grid>
           </Container>
         </div>
       ) : (

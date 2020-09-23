@@ -16,6 +16,9 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 'auto',
     marginRight: 'auto',
   },
+  title: {
+    fontWeight: 'bold',
+  },
 }));
 
 const Carousel = () => {
@@ -71,7 +74,12 @@ const Carousel = () => {
   return (
     <div>
       <Box pt={4} pb={2}>
-        <Typography variant='h4' color='primary' align='center'>
+        <Typography
+          variant='h4'
+          color='primary'
+          align='center'
+          className={classes.title}
+        >
           <Emoji symbol={'🌟'} label='glowing star' /> Popular Movies
         </Typography>
       </Box>
