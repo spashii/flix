@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from '@reach/router';
 
-import { Box, Button, Hidden, makeStyles, Tooltip } from '@material-ui/core';
+import {
+  Box,
+  Button,
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  makeStyles,
+  Tooltip,
+} from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -38,11 +46,6 @@ const links = [
     icon: Home,
     to: '/',
   },
-  {
-    title: 'Random Movie',
-    icon: ShuffleIcon,
-    to: '/movie/random',
-  },
 ];
 
 const IconButtons = ({ data }) => {
@@ -59,6 +62,14 @@ const IconButtons = ({ data }) => {
 
 const Navbar = () => {
   const classes = useStyles();
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const handleDialog = (action) => {
+    if (action === 'open') {
+      setDialogOpen(true);
+    } else {
+      setDialogOpen(false);
+    }
+  };
   return (
     <div className={classes.root}>
       <AppBar position='static'>
@@ -66,7 +77,7 @@ const Navbar = () => {
           <Box className={classes.toolbar}>
             <Box>
               <Tooltip title='Home'>
-                <Button color='inherit'>
+                <Button color='inherit' component={Link} to='/'>
                   <Typography variant='h5' className={classes.title}>
                     <Emoji
                       symbol={'🎞️'}
@@ -82,8 +93,19 @@ const Navbar = () => {
               {links.map((link) => (
                 <IconButtons key={link.title} data={link} />
               ))}
+              <Tooltip title='Random Movie'>
+                <IconButton
+                  color='inherit'
+                  onClick={() => handleDialog('open')}
+                >
+                  <ShuffleIcon />
+                </IconButton>
+              </Tooltip>
               <Tooltip title='Source Code'>
-                <IconButton color='inherit'>
+                <IconButton
+                  color='inherit'
+                  onClick={() => handleDialog('open')}
+                >
                   <CodeIcon />
                 </IconButton>
               </Tooltip>
@@ -91,6 +113,28 @@ const Navbar = () => {
           </Box>
         </Toolbar>
       </AppBar>
+
+      <Dialog
+        onClose={() => handleDialog('close')}
+        aria-labelledby='dialog-title'
+        open={dialogOpen}
+      >
+        <DialogTitle
+          style={{
+            padding: '14px',
+          }}
+        >
+          <Emoji symbol={'😅'} label='oops' />
+          Try again later
+        </DialogTitle>
+        <DialogContent
+          style={{
+            padding: '14px',
+          }}
+        >
+          This button doesn't work yet, please try again later.
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

@@ -1,59 +1,75 @@
 import React from 'react';
-import {
-  Box,
-  Card,
-  CardActionArea,
-  CardContent,
-  CardMedia,
-  makeStyles,
-  Typography,
-} from '@material-ui/core';
-
-import GenreTag from './GenreTag';
-import { Rating } from '@material-ui/lab';
+import { navigate } from '@reach/router';
+import { Box, Button, makeStyles, Paper, Typography } from '@material-ui/core';
+import { grey } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    position: 'relative',
-    margin: theme.spacing(2),
-    height: '250px',
+  card: {
+    transition: 'transform 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
+    '&:hover': {
+      transform: 'translateY(-10px)',
+    },
+    backgroundColor: grey[100],
   },
-  cardActionArea: {
-    display: 'flex',
+  root: {
+    display: 'block',
+    margin: 0,
+    padding: 0,
+    borderRadius: '4px 4px 0px 0px',
+    overflow: 'hidden',
+    position: 'relative',
+    textTransform: 'none',
+    minHeight: '365px',
+    [theme.breakpoints.down('md')]: {
+      minHeight: '315px',
+    },
+    [theme.breakpoints.down('sm')]: {
+      minHeight: '285px',
+    },
   },
   media: {
-    minWidth: '30%',
-    maxWidth: '30%',
+    height: '300px',
+    [theme.breakpoints.down('md')]: {
+      height: '250px',
+    },
+    [theme.breakpoints.down('sm')]: {
+      height: '220px',
+    },
+    width: '100%',
+    objectFit: 'cover',
   },
-  content: {},
+  title: {
+    color: 'white',
+    textAlign: 'left',
+    [theme.breakpoints.down('md')]: {
+      textAlign: 'center',
+    },
+  },
 }));
 
 const MovieCard = ({ content }) => {
   const classes = useStyles();
-  console.log(content);
   return (
-    <Card className={classes.root}>
-      <CardActionArea className={classes.cardActionArea}>
-        <CardMedia
-          component='img'
+    <Paper elevation={3} className={classes.card}>
+      <Button
+        component={Box}
+        className={classes.root}
+        onClick={() => {
+          navigate(`/movie/${content.id}`);
+        }}
+      >
+        <img
           alt={content.title + ' cover'}
-          image={`https://image.tmdb.org/t/p/w342${content.poster_path}`}
+          src={`https://image.tmdb.org/t/p/w342${content.poster_path}`}
           className={classes.media}
         />
-        <CardContent className={classes.content}>
-          <Box p={1} display='flex' flexDirection='column'>
-            <Typography variant='h6'>{content.title} </Typography>
-            <Typography variant='body2'>{content.overview}</Typography>
-            <Rating
-              name='half-rating-read'
-              defaultValue={content.vote_average / 2}
-              precision={0.5}
-              readOnly
-            />{' '}
-          </Box>
-        </CardContent>
-      </CardActionArea>
-    </Card>
+        <Box p={1} display='flex' justifyContent='center' alignItems='center'>
+          <Typography variant='body2' align='center'>
+            {content.title}
+          </Typography>
+        </Box>
+      </Button>
+    </Paper>
   );
 };
 

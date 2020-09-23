@@ -1,7 +1,9 @@
 import React from 'react';
 
-function App() {
-  return <div>movie</div>;
-}
+import { MovieBig } from '../components';
 
-export default App;
+const Movie = ({ movieId }) => {
+  return <MovieBig movieId={movieId} />;
+};
+
+export default Movie;
