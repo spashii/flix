@@ -13,8 +13,9 @@ const useStyles = makeStyles((theme) => ({
   },
   mainContainer: {},
   backdrop: {},
-
-  card: {},
+  card: {
+    marginTop: theme.spacing(4),
+  },
 }));
 
 const MovieBig = ({ movieId }) => {
@@ -44,17 +45,21 @@ const MovieBig = ({ movieId }) => {
   return (
     <div className={classes.root}>
       {data ? (
-        <div
-          className={classes.mainContainer}
-          style={{
-            background: `url(https://image.tmdb.org/t/p/original${data.backdrop_path})`,
-            backgroundSize: 'cover',
-            width: '100vw',
-            minHeight: '91vh',
-          }}
-        >
+        <div>
+          <div
+            className={classes.mainContainer}
+            style={{
+              position: 'fixed',
+              top: 0,
+              background: `url(https://image.tmdb.org/t/p/original${data.backdrop_path})`,
+              backgroundSize: 'cover',
+              width: '100vw',
+              minHeight: '100vh',
+              zIndex: -1,
+            }}
+          />
           <Container maxWidth='lg'>
-            <Card className={classes.card}>
+            <Box component={Paper} className={classes.card}>
               helloOfficia occaecat irure aute dolor esse veniam culpa dolor
               elit irure excepteur dolor minim anim. Commodo proident cupidatat
               cillum incididunt. Est sint ullamco ut sit ullamco. Et cupidatat
@@ -73,7 +78,107 @@ const MovieBig = ({ movieId }) => {
               ullamco ullamco esse nostrud sunt amet commodo labore aliqua sit.
               Mollit ut laborum sint in nostrud. Ea excepteur culpa excepteur
               est proident irure commodo in ea enim et ea esse laboris.
-            </Card>
+            </Box>
+            <Box component={Paper} className={classes.card}>
+              helloOfficia occaecat irure aute dolor esse veniam culpa dolor
+              elit irure excepteur dolor minim anim. Commodo proident cupidatat
+              cillum incididunt. Est sint ullamco ut sit ullamco. Et cupidatat
+              pariatur minim mollit magna exercitation aliqua veniam ut. Minim
+              aute consectetur tempor do aliqua pariatur elit culpa. Tempor
+              aliquip ullamco laboris anim ut et sint do elit pariatur nisi eu
+              commodo. Cupidatat aliquip ipsum cupidatat do dolor cillum esse
+              sunt non dolore eu. Duis eiusmod est elit tempor dolore sint.
+              Magna ea reprehenderit fugiat esse in irure sint cupidatat tempor.
+              Culpa deserunt adipisicing amet sunt tempor voluptate. Et sint
+              magna eiusmod eu proident. Nisi nulla ea duis ipsum elit laboris
+              consectetur elit eiusmod amet ullamco deserunt ea mollit. Proident
+              ad non sunt qui ex sint sit ullamco. Non ut incididunt duis
+              deserunt laborum tempor non exercitation duis non nisi. Veniam
+              incididunt mollit mollit irure laboris Lorem. Id ea nulla sit sint
+              ullamco ullamco esse nostrud sunt amet commodo labore aliqua sit.
+              Mollit ut laborum sint in nostrud. Ea excepteur culpa excepteur
+              est proident irure commodo in ea enim et ea esse laboris.
+            </Box>
+            <Box component={Paper} className={classes.card}>
+              helloOfficia occaecat irure aute dolor esse veniam culpa dolor
+              elit irure excepteur dolor minim anim. Commodo proident cupidatat
+              cillum incididunt. Est sint ullamco ut sit ullamco. Et cupidatat
+              pariatur minim mollit magna exercitation aliqua veniam ut. Minim
+              aute consectetur tempor do aliqua pariatur elit culpa. Tempor
+              aliquip ullamco laboris anim ut et sint do elit pariatur nisi eu
+              commodo. Cupidatat aliquip ipsum cupidatat do dolor cillum esse
+              sunt non dolore eu. Duis eiusmod est elit tempor dolore sint.
+              Magna ea reprehenderit fugiat esse in irure sint cupidatat tempor.
+              Culpa deserunt adipisicing amet sunt tempor voluptate. Et sint
+              magna eiusmod eu proident. Nisi nulla ea duis ipsum elit laboris
+              consectetur elit eiusmod amet ullamco deserunt ea mollit. Proident
+              ad non sunt qui ex sint sit ullamco. Non ut incididunt duis
+              deserunt laborum tempor non exercitation duis non nisi. Veniam
+              incididunt mollit mollit irure laboris Lorem. Id ea nulla sit sint
+              ullamco ullamco esse nostrud sunt amet commodo labore aliqua sit.
+              Mollit ut laborum sint in nostrud. Ea excepteur culpa excepteur
+              est proident irure commodo in ea enim et ea esse laboris.
+            </Box>
+            <Box component={Paper} className={classes.card}>
+              helloOfficia occaecat irure aute dolor esse veniam culpa dolor
+              elit irure excepteur dolor minim anim. Commodo proident cupidatat
+              cillum incididunt. Est sint ullamco ut sit ullamco. Et cupidatat
+              pariatur minim mollit magna exercitation aliqua veniam ut. Minim
+              aute consectetur tempor do aliqua pariatur elit culpa. Tempor
+              aliquip ullamco laboris anim ut et sint do elit pariatur nisi eu
+              commodo. Cupidatat aliquip ipsum cupidatat do dolor cillum esse
+              sunt non dolore eu. Duis eiusmod est elit tempor dolore sint.
+              Magna ea reprehenderit fugiat esse in irure sint cupidatat tempor.
+              Culpa deserunt adipisicing amet sunt tempor voluptate. Et sint
+              magna eiusmod eu proident. Nisi nulla ea duis ipsum elit laboris
+              consectetur elit eiusmod amet ullamco deserunt ea mollit. Proident
+              ad non sunt qui ex sint sit ullamco. Non ut incididunt duis
+              deserunt laborum tempor non exercitation duis non nisi. Veniam
+              incididunt mollit mollit irure laboris Lorem. Id ea nulla sit sint
+              ullamco ullamco esse nostrud sunt amet commodo labore aliqua sit.
+              Mollit ut laborum sint in nostrud. Ea excepteur culpa excepteur
+              est proident irure commodo in ea enim et ea esse laboris.
+            </Box>
+            <Box component={Paper} className={classes.card}>
+              helloOfficia occaecat irure aute dolor esse veniam culpa dolor
+              elit irure excepteur dolor minim anim. Commodo proident cupidatat
+              cillum incididunt. Est sint ullamco ut sit ullamco. Et cupidatat
+              pariatur minim mollit magna exercitation aliqua veniam ut. Minim
+              aute consectetur tempor do aliqua pariatur elit culpa. Tempor
+              aliquip ullamco laboris anim ut et sint do elit pariatur nisi eu
+              commodo. Cupidatat aliquip ipsum cupidatat do dolor cillum esse
+              sunt non dolore eu. Duis eiusmod est elit tempor dolore sint.
+              Magna ea reprehenderit fugiat esse in irure sint cupidatat tempor.
+              Culpa deserunt adipisicing amet sunt tempor voluptate. Et sint
+              magna eiusmod eu proident. Nisi nulla ea duis ipsum elit laboris
+              consectetur elit eiusmod amet ullamco deserunt ea mollit. Proident
+              ad non sunt qui ex sint sit ullamco. Non ut incididunt duis
+              deserunt laborum tempor non exercitation duis non nisi. Veniam
+              incididunt mollit mollit irure laboris Lorem. Id ea nulla sit sint
+              ullamco ullamco esse nostrud sunt amet commodo labore aliqua sit.
+              Mollit ut laborum sint in nostrud. Ea excepteur culpa excepteur
+              est proident irure commodo in ea enim et ea esse laboris.
+            </Box>
+            <Box component={Paper} className={classes.card}>
+              helloOfficia occaecat irure aute dolor esse veniam culpa dolor
+              elit irure excepteur dolor minim anim. Commodo proident cupidatat
+              cillum incididunt. Est sint ullamco ut sit ullamco. Et cupidatat
+              pariatur minim mollit magna exercitation aliqua veniam ut. Minim
+              aute consectetur tempor do aliqua pariatur elit culpa. Tempor
+              aliquip ullamco laboris anim ut et sint do elit pariatur nisi eu
+              commodo. Cupidatat aliquip ipsum cupidatat do dolor cillum esse
+              sunt non dolore eu. Duis eiusmod est elit tempor dolore sint.
+              Magna ea reprehenderit fugiat esse in irure sint cupidatat tempor.
+              Culpa deserunt adipisicing amet sunt tempor voluptate. Et sint
+              magna eiusmod eu proident. Nisi nulla ea duis ipsum elit laboris
+              consectetur elit eiusmod amet ullamco deserunt ea mollit. Proident
+              ad non sunt qui ex sint sit ullamco. Non ut incididunt duis
+              deserunt laborum tempor non exercitation duis non nisi. Veniam
+              incididunt mollit mollit irure laboris Lorem. Id ea nulla sit sint
+              ullamco ullamco esse nostrud sunt amet commodo labore aliqua sit.
+              Mollit ut laborum sint in nostrud. Ea excepteur culpa excepteur
+              est proident irure commodo in ea enim et ea esse laboris.
+            </Box>
           </Container>
         </div>
       ) : (

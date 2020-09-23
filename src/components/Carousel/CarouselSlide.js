@@ -17,7 +17,9 @@ const useStyles = makeStyles((theme) => ({
     height: '75vh',
     [theme.breakpoints.down('sm')]: {
       height: '60vh',
-      maxWidth: '70vw',
+    },
+    [theme.breakpoints.down('xs')]: {
+      height: '40vh',
     },
     cursor: 'pointer',
     padding: 0,
@@ -34,6 +36,9 @@ const useStyles = makeStyles((theme) => ({
     height: '75vh',
     [theme.breakpoints.down('sm')]: {
       height: '60vh',
+    },
+    [theme.breakpoints.down('xs')]: {
+      height: '40vh',
     },
     objectFit: 'cover',
   },
@@ -80,7 +85,7 @@ const CarouselSlide = ({ content }) => {
           </Hidden>
         </Box>
         <img
-          src={`https://image.tmdb.org/t/p/original/${content.backdrop_path}`}
+          src={`https://image.tmdb.org/t/p/original${content.backdrop_path}`}
           alt={content.title + ' backdrop image'}
           className={classes.image}
         />
