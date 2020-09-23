@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     height: '75vh',
     [theme.breakpoints.down('sm')]: {
+      height: '60vh',
       maxWidth: '70vw',
     },
     cursor: 'pointer',
@@ -31,6 +32,9 @@ const useStyles = makeStyles((theme) => ({
     },
     width: '100%',
     height: '75vh',
+    [theme.breakpoints.down('sm')]: {
+      height: '60vh',
+    },
     objectFit: 'cover',
   },
   titleWrapper: {

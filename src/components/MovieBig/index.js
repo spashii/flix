@@ -12,12 +12,7 @@ const useStyles = makeStyles((theme) => ({
     right: '50%',
   },
   mainContainer: {},
-  backdrop: {
-    position: 'absolute',
-    width: '100vw',
-    height: '300vh',
-    zIndex: '-1',
-  },
+  backdrop: {},
 
   card: {},
 }));
@@ -55,7 +50,7 @@ const MovieBig = ({ movieId }) => {
             background: `url(https://image.tmdb.org/t/p/original${data.backdrop_path})`,
             backgroundSize: 'cover',
             width: '100vw',
-            minHeight: '95vh',
+            minHeight: '91vh',
           }}
         >
           <Container maxWidth='lg'>
