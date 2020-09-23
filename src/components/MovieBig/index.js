@@ -15,6 +15,8 @@ import {
 import { grey } from '@material-ui/core/colors';
 import { Rating } from '@material-ui/lab';
 
+import CountryFlag from 'react-country-flag';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     position: 'relative',
@@ -41,10 +43,23 @@ const useStyles = makeStyles((theme) => ({
   media: {
     borderRadius: '4px',
     objectFit: 'cover',
-    width: '100%',
     height: '100%',
+    width: '100%',
   },
-  gridItem: {},
+  gridItem: {
+    backgroundColor: '#fdfdfd',
+  },
+  gridItemMain: {
+    backgroundColor: '#fdfdfd',
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    [theme.breakpoints.down('sm')]: {
+      flexDirection: 'column',
+      alignItems: 'flex-start',
+    },
+  },
 }));
 
 const MovieBig = ({ movieId }) => {
@@ -59,7 +74,6 @@ const MovieBig = ({ movieId }) => {
     axios
       .get(url)
       .then((res) => {
-        console.log(res);
         if (res.status === 200) {
           const { data } = res;
           setData(data);
@@ -70,7 +84,6 @@ const MovieBig = ({ movieId }) => {
       })
       .catch((err) => console.error(err));
   }, [movieId]);
-
   return (
     <div className={classes.root}>
       {data ? (
@@ -90,26 +103,34 @@ const MovieBig = ({ movieId }) => {
           <Container component={Box} mt={4} maxWidth='lg'>
             <Grid
               container
-              spacing={4}
+              spacing={2}
               justify='flex-start'
               alignItems='stretch'
             >
               <Grid item xs={12}>
-                <Paper
-                  component={Box}
-                  p={2}
-                  display='flex'
-                  flexDirecton={{ sm: 'column', md: 'row' }}
-                  alignItems='center'
-                  className={classes.gridItem}
-                >
-                  <Box mr={'auto'}>
+                <Paper component={Box} p={2} className={classes.gridItemMain}>
+                  <Box>
                     <Typography
                       color='primary'
                       variant='h4'
                       className={classes.title}
                     >
                       {data.title}
+                      {typeof data.production_countries !== 'undefined' &&
+                        typeof data.production_countries[0] !== 'undefined' &&
+                        typeof data.production_countries[0]['iso_3166_1'] !==
+                          'undefined' && (
+                          <CountryFlag
+                            countryCode={
+                              data.production_countries[0]['iso_3166_1']
+                            }
+                            svg
+                            style={{
+                              paddingBottom: '4px',
+                              marginLeft: '8px',
+                            }}
+                          />
+                        )}
                     </Typography>
                     <Typography variant='subtitle1' className={classes.tagline}>
                       {data.tagline}
@@ -129,40 +150,17 @@ const MovieBig = ({ movieId }) => {
                   </Box>
                 </Paper>
               </Grid>
-              {/* <Grid item xs={12} md={5}>
-                <Paper
-                  style={{
-                    height: '100%',
-                  }}
-                  component={Box}
-                  display='flex'
-                  alignItems='center'
-                  justifyContent='space-evenly'
-                  p={2}
-                  className={classes.gridItem}
-                >
-                  <Rating
-                    name='movie-rating'
-                    readOnly
-                    defaultValue={data.vote_average}
-                    max={10}
-                    precision={0.5}
-                  />
-                  <Typography variant='subtitle1'>
-                    ({data.vote_count} votes)
-                  </Typography>
-                </Paper>
-              </Grid> */}
-              <Grid item xs={12} md={4}>
+              <Grid item xs={12} sm={4}>
                 <div className={classes.mediaWrapper}>
                   <img
                     alt={data.title + ' cover'}
                     className={classes.media}
-                    src={`https://image.tmdb.org/t/p/w342${data.poster_path}`}
+                    src={`https://image.tmdb.org/t/p/w185${data.poster_path}`}
+                    srcSet={`https://image.tmdb.org/t/p/w185${data.poster_path} 300w, https://image.tmdb.org/t/p/w342${data.poster_path} 768w`}
                   />
                 </div>
               </Grid>
-              <Grid item xs={12} md={8}>
+              <Grid item xs={12} sm={8}>
                 <Paper component={Box} p={2} className={classes.gridItem}>
                   <List className={classes.root}>
                     {data.original_title && (

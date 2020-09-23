@@ -64,7 +64,6 @@ const Carousel = () => {
       .get(url)
       .then((res) => {
         const { results } = res.data;
-        console.log(results);
         setSlides(results);
         setLoading(false);
       })

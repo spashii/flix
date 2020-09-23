@@ -30,7 +30,6 @@ const MovieGrid = () => {
       .get(url)
       .then((res) => {
         const { results } = res.data;
-        console.log(results);
         setMovies(movies.concat(results));
         setLoading(false);
       })
@@ -44,7 +43,6 @@ const MovieGrid = () => {
       .get(url)
       .then((res) => {
         const { results } = res.data;
-        console.log(results);
         setMovies(results);
         setLoading(false);
       })
